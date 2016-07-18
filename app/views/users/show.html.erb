@@ -1,3 +1,7 @@
 <h1> Paid </h1>
-<h3><%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Sign In", new_user_session_path %></h3>
+<% if user_signed_in? %>
+  
+<% else %>
+  <h3><%= link_to "Sign Up", new_user_registration_path %>
+    <%= link_to "Sign In", new_user_session_path %></h3>
+<% end %>
