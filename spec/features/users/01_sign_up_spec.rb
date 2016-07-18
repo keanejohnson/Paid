@@ -6,13 +6,11 @@ I want to create an account
 So that I can use the application
 ) do
 # Acceptance Criteria:
-# * There is an option to sign up on the page if I have not already signed up
-# * Clicking the link to sign up will take me to a sign up form
-# * I must specify a unique and valid name, email address, and profile picture
-# * If I've entered valid information, I receive an onscreen message
-  # congratulating me for signing up and I can use the system
-# * If I didn't enter valid information, I receive an error message and I am
-  # left unauthenticated
+# [X] There is an option to sign up on the page if I have not already signed up
+# [X] Clicking the link to sign up will take me to a sign up form
+# [X] I must specify a unique and valid name, email address
+# [X] Displays success message when form is subitted correctly
+# [X] Displays errors when form is not submitted correctly
 
   context 'as a prospective user' do
     scenario 'I can visit the root path and click a link to create a new
