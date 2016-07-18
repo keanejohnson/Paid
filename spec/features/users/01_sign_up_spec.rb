@@ -6,7 +6,7 @@ feature 'user signs up', %(
   So that I can use the application
 ) do
   # Acceptance Criteria:
-  # [X] There is an option to sign up on the page if I have not already signed up
+  # [X] There is an option to sign up on the page if I haven't already signed up
   # [X] Clicking the link to sign up will take me to a sign up form
   # [X] I must specify a unique and valid name, email address
   # [X] Displays success message when form is subitted correctly

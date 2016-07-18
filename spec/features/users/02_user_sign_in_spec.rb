@@ -5,7 +5,6 @@ feature 'user signs in', %(
   I want to sign in
   So that I can use the application
 ) do
-
   # Acceptance Criteria
   # [ ] There is an option to sign in on the page if I'm not already
   #     authenticated
