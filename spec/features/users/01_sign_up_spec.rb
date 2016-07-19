@@ -16,7 +16,7 @@ feature 'user signs up', %(
     scenario 'I can visit the root path and click a link to create a new
       account' do
       visit root_path
-      click_link 'Sign Up'
+      click_button 'Sign Up'
 
       expect(page).to have_css('form#new_user')
     end
@@ -24,7 +24,7 @@ feature 'user signs up', %(
     scenario 'I am taken to the new user form after I click the link to create
       a new account' do
       visit root_path
-      click_link 'Sign Up'
+      click_button 'Sign Up'
 
       expect(page).to have_css('input#user_first_name')
       expect(page).to have_css('input#user_last_name')
@@ -36,7 +36,7 @@ feature 'user signs up', %(
     scenario 'specifying valid and required information allows me to
       successfully create an account' do
       visit root_path
-      click_link 'Sign Up'
+      click_button 'Sign Up'
       fill_in 'First Name', with: 'John'
       fill_in 'Last Name', with: 'Smith'
       fill_in 'Email', with: 'john.smith@example.com'
@@ -51,7 +51,7 @@ feature 'user signs up', %(
     scenario 'specifying an invalid email address to create an account will
       re-render the page with an error message' do
       visit root_path
-      click_link 'Sign Up'
+      click_button 'Sign Up'
       click_button 'Sign Up'
 
       expect(page).to have_content("can't be blank")
@@ -61,7 +61,7 @@ feature 'user signs up', %(
     scenario 'specifying a password confirmation that does not match password
       will re-render the page with an error message' do
       visit root_path
-      click_link 'Sign Up'
+      click_button 'Sign Up'
 
       fill_in 'user_password', with: 'password'
       fill_in 'Password Confirmation', with: 'somethingdifferent'
