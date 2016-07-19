@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#show'
+  root 'home#index'
 
   devise_scope :user do
     authenticated :user do

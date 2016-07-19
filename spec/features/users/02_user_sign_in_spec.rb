@@ -21,7 +21,7 @@ feature 'user signs in', %(
 
     scenario "I will successfully sign in with valid credentials" do
       visit root_path
-      click_link "Sign In"
+      click_button "Sign In"
       fill_in("Email", with: user.email)
       fill_in("Password", with: user.password)
       click_button "Sign In"
@@ -31,7 +31,7 @@ feature 'user signs in', %(
 
     scenario "I will not be able to sign in if I enter the wrong email" do
       visit root_path
-      click_link "Sign In"
+      click_button "Sign In"
       fill_in("Email", with: "benedict.arnold@britain.com")
       fill_in("Password", with: user.password)
       click_button "Sign In"
@@ -41,7 +41,7 @@ feature 'user signs in', %(
 
     scenario "I will not be able to sign in if I enter the wrong password" do
       visit root_path
-      click_link "Sign In"
+      click_button "Sign In"
       fill_in("Email", with: user.email)
       fill_in("Password", with: "longlivethequeen")
       click_button "Sign In"

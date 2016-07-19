@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+$grey: #414149;
+$orange: #dd9e2c;
+
+h1 {
+  background: $grey;
+  color: $orange;
+  font-family: "Oswald";
+  text-align: center;
+}
+
+body {
+  background: $grey;
+  font-family: "Oswald";
+}
+
+.button {
+  float: left;
+  font-family: "Oswald";
+  margin: 5px;
+}
