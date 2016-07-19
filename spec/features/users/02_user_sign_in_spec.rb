@@ -6,15 +6,15 @@ feature 'user signs in', %(
   So that I can use the application
 ) do
   # Acceptance Criteria
-  # [ ] There is an option to sign in on the page if I'm not already
+  # [X] There is an option to sign in on the page if I'm not already
   #     authenticated
-  # [ ] My password is not displayed as I enter it
-  # [ ] I must specify a valid email address
-  # [ ] If I've entered valid credentials, I receive an onscreen message that
+  # [X] My password is not displayed as I enter it
+  # [X] I must specify a valid email address
+  # [X] If I've entered valid credentials, I receive an onscreen message that
   #     I'm logged in and I can use the system
-  # [ ] If I didn't enter valid credentials, I receive an error message and
+  # [X] If I didn't enter valid credentials, I receive an error message and
   #     I am left unauthenticated
-  # [ ] If I'm already authenticated, I don't have the option to sign in
+  # [] If I'm already authenticated, I don't have the option to sign in
 
   context "As an unauthenticated user" do
     let(:user) { FactoryGirl.create(:user) }
