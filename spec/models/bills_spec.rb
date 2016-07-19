@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Bill, type: :model do
-  it { should have_valid(:name).when('Groceries', '7/31')}
+  it { should have_valid(:name).when('Groceries', '7/31') }
   it { should_not have_valid(:name).when(nil, '') }
 
   it { should have_valid(:user_id).when(4, 100, 1) }
