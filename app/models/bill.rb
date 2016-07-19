@@ -3,10 +3,10 @@ class Bill < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description,
-                length: {
-                  maximum: 140,
-                  message: "Shorter description, please!"
-                }
+    length: {
+      maximum: 140,
+      message: "Shorter description, please!"
+    }
   validates :amount,
     presence: true,
     numericality: true,
