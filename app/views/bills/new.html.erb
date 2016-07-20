@@ -15,3 +15,7 @@
 
   <%= f.submit %>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Bill History", user_path(@user)  %>
+<% end %>

@@ -1,7 +1,12 @@
 <h1> Paid </h1>
-<% if user_signed_in? %>
-  
-<% else %>
-  <h3><%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign In", new_user_session_path %></h3>
+<h2> Bill History </h2>
+<% @bills.each do |bill| %>
+  <%= bill.title %>
+  <%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %>
+  <%= bill.description %>
+  <%= "Total: $#{bill.amount}" %>
+  <%= "Splits: #{bill.party_size}" %>
+  <%= "Everybody Owes: $#{(bill.amount / bill.party_size).round(2)}" %> </br>
 <% end %>
+
+<%= link_to "Split Another Bill", root_path %>
