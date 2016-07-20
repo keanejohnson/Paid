@@ -1,21 +1,25 @@
-<h1> PAID </h1>
+<div class="titles">
+  <h1> PAID </h1>
+  <h6> A TOOL TO REPAY FRIENDS </h6>
+</div>
+<div class="new-bill-form">
+  <div class="form-title">
+    <%= "Share Calculator" %>
+  </div>
 
-<%= form_for @bill do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= form_for @bill do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
 
-  <%= f.label :amount %>
-  <%= f.text_field :amount %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
 
-  <%= f.label :party_size, "Party Size" %>
-  <%= f.text_field :party_size %>
+    <%= f.label :party_size, "Party Size" %>
+    <%= f.text_field :party_size %>
 
-  <%= f.submit %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to "Bill History", user_path(@user)  %>
-<% end %>
+    <%= f.submit class: "info button" %>
+  <% end %>
+</div>

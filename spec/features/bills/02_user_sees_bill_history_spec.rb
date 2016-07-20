@@ -32,11 +32,10 @@ feature 'user views bill history', %(
       fill_in 'Amount', with: '84.38'
       fill_in 'Party Size', with: '2'
       click_button 'Create Bill'
-      click_link 'Bill History'
+      first(:link, 'Bill History').click
 
       expect(page).to have_content("Bill History")
       expect(page).to have_content("Beehive Saturday Night")
-      expect(page).to have_link("Split Another Bill")
     end
   end
 
