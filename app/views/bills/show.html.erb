@@ -5,7 +5,7 @@
 <%= "Everybody Owes: $#{@per_person}" %> </br>
 
 <% if user_signed_in? %>
-  <%= link_to "Bill History", user_path(@bill.user)  %>
+  <%= link_to "Bill History", user_path(@bill.owner)  %>
 <% end %>
 
 <%= link_to "Split A New Bill", new_bill_path %>

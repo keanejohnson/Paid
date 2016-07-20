@@ -11,7 +11,7 @@ class BillsController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
-    @bill.user = current_user
+    @bill.owner = current_user
     if @bill.save
       flash[:success] = "Bill successfully split!"
       redirect_to bill_path(@bill)
