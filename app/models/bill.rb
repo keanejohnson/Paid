@@ -14,5 +14,4 @@ class Bill < ActiveRecord::Base
   validates :party_size,
     presence: true,
     numericality: { only_integer: true, greater_than: 0 }
-  validates :user_id, presence: true, numericality: { only_integer: true }
 end

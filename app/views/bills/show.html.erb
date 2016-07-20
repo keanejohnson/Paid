@@ -1,0 +1,7 @@
+<h1> <%= "#{@bill.title}" %> </h1>
+<%= @bill.description %>
+<%= "Total: $#{@bill.amount}" %>
+<%= "Splits: #{@bill.party_size}" %>
+<%= "Everybody Owes: $#{@per_person}" %> 
+
+<%= link_to "Split A New Bill", new_bill_path %>
