@@ -5,7 +5,6 @@ feature 'user views bill history', %(
   I want to view my bill history
   So that I can see any outstanding debts
 ) do
-
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 

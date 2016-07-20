@@ -26,5 +26,4 @@ class BillsController < ApplicationController
   def bill_params
     params.require(:bill).permit(:title, :description, :amount, :party_size)
   end
-  
 end
