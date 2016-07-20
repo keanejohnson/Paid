@@ -1,0 +1,27 @@
+$white: #ffffff;
+$black: #000000;
+$powder: #bfd8d2;
+$warm: #de744c;
+$black: #000000;
+$peach: #fedcd2;
+
+@import 'https://fonts.googleapis.com/css?family=Space+Mono|Roboto+Slab';
+
+.bill-container {
+  background-color: $white;
+  border: 3px solid $peach;
+  font-family: 'Roboto Slab', serif;
+  margin-bottom: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 10px 20px;
+}
+
+h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
+.split-more {
+  margin-left: 15%;
+  margin-top: 20px;
+}

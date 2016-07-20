@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :bills
+  has_many :bills, class_name: "Bill", foreign_key: "owner_id"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

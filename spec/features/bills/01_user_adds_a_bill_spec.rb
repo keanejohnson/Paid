@@ -34,7 +34,7 @@ feature 'user adds a bill', %(
       expect(page).to have_content('Everybody Owes: $42.19')
     end
 
-    scenario "specifying valid information should not create a new bill" do
+    scenario "specifying invalid information should not create a new bill" do
       visit root_path
       fill_in 'Title', with: 'Dinner'
       fill_in 'Description', with: 'Beehive Saturday Night'

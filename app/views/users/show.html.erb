@@ -1,12 +1,16 @@
-<h1> Paid </h1>
-<h2> Bill History </h2>
-<% @bills.each do |bill| %>
-  <%= bill.title %>
-  <%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %>
-  <%= bill.description %>
-  <%= "Total: $#{bill.amount}" %>
-  <%= "Splits: #{bill.party_size}" %>
-  <%= "Everybody Owes: $#{(bill.amount / bill.party_size).round(2)}" %> </br>
-<% end %>
-
-<%= link_to "Split Another Bill", root_path %>
+<h1> PAID </h1>
+<div class="bill-container">
+  <div class="bill-history">
+    <h2> Bill History </h2>
+  </div>
+  <div class="bill-list">
+    <% @bills.each do |bill| %>
+      <%= bill.title %>
+      <%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %>
+      <%= bill.description %>
+      <%= "Total: $#{bill.amount}" %>
+      <%= "Splits: #{bill.party_size}" %>
+      <%= "Everybody Owes: $#{(bill.amount / bill.party_size).round(2)}" %> </br>
+    <% end %>
+  </div>
+</div>

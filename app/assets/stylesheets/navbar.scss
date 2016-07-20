@@ -1,0 +1,23 @@
+$white: #ffffff;
+$black: #000000;
+$dark-green: #609e90;
+
+.top-bar {
+  background-color: $white;
+  border-bottom: 5px solid $dark-green;
+  height: 50px;
+}
+
+.sign-links {
+  margin-left: 20px;
+  text-align: left;
+}
+
+a {
+  color: $black;
+  font-weight: 500;
+}
+
+.sign-links-2 {
+  margin-left: 20px;
+}

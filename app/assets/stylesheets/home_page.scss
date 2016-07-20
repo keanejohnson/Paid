@@ -1,0 +1,56 @@
+$powder: #bfd8d2;
+$warm: #de744c;
+$black: #000000;
+$peach: #fedcd2;
+
+@import 'https://fonts.googleapis.com/css?family=Space+Mono|Roboto+Slab';
+
+body {
+  background-color: $powder;
+  font-family: 'Roboto Slab', serif;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: $warm;
+  background-color: $powder;
+  font-family: 'Roboto Slab', serif;
+  font-size: 72px;
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: center;
+}
+
+h6 {
+  color: $black;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bolder;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.new-bill-form {
+  background-color: $peach;
+  border: 3px solid $warm;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  width: 400px;
+}
+
+.form-title {
+  font-size: 24px;
+  text-align: center
+}
+
+.form-inputs {
+  background-color: $peach;
+  border: 3px solid $warm;
+  margin: auto;
+  padding: 20px;
+  width: 400px;
+}
+
+.sign-up-form {
+  margin-bottom: 100px;
+}
