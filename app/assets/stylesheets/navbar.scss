@@ -1,15 +1,16 @@
 $white: #ffffff;
 $black: #000000;
+$dark-green: #609e90;
 
 .top-bar {
   background-color: $white;
-  border-bottom: 5px solid #609e90;
+  border-bottom: 5px solid $dark-green;
   height: 50px;
 }
 
 .sign-links {
-  text-align: left;
   margin-left: 20px;
+  text-align: left;
 }
 
 a {
