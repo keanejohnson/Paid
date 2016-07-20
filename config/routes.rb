@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#show'
+  root 'bills#new'
 
   devise_scope :user do
     authenticated :user do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users, except: [:destroy, :index]
   resources :bills
 
   # The priority is based upon order of creation: first created -> highest priority.
