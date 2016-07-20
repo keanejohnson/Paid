@@ -2,6 +2,10 @@
 <%= @bill.description %>
 <%= "Total: $#{@bill.amount}" %>
 <%= "Splits: #{@bill.party_size}" %>
-<%= "Everybody Owes: $#{@per_person}" %> 
+<%= "Everybody Owes: $#{@per_person}" %> </br>
+
+<% if user_signed_in? %>
+  <%= link_to "Bill History", user_path(@bill.user)  %>
+<% end %>
 
 <%= link_to "Split A New Bill", new_bill_path %>

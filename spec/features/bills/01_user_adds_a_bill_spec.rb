@@ -6,11 +6,11 @@ feature 'user adds a bill', %(
   So that I can figure out how much I owe
 ) do
   # Acceptance Criteria:
-  # [] There is an option to add a new bill on the root page
-  # [] There are form fields for title, description, amount and party size
-  # [] There is a button to submit (create bill)
-  # [] Submitting the form takes me to a new page
-  # [] New page contains information from form and amount owed per person
+  # [X] There is an option to add a new bill on the root page
+  # [X] There are form fields for title, description, amount and party size
+  # [X] There is a button to submit (create bill)
+  # [X] Submitting the form takes me to a new page
+  # [X] New page contains information from form and amount owed per person
 
   context "as an unauthenticated use" do
     scenario "I want to be able to see a form for a new bill" do
