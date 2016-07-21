@@ -5,7 +5,6 @@ feature 'user navigates to a group', %(
   I want to be able to navigate to a group
   So I can view bill history information
 ) do
-
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
     scenario "I can view a group I created by clicking Manage Groups" do
