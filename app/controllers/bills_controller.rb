@@ -21,6 +21,13 @@ class BillsController < ApplicationController
     end
   end
 
+  def destroy
+    @bill = Bill.find(params[:id])
+    @bill.destroy
+    @user = current_user
+    redirect_to user_path(@user)
+  end
+
   protected
 
   def bill_params
