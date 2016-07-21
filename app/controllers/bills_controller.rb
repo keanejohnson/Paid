@@ -16,7 +16,7 @@ class BillsController < ApplicationController
       flash[:success] = "Bill successfully split!"
       redirect_to bill_path(@bill)
     else
-      flash[:notice] = "Something went wrong"
+      flash[:notice] = "Something Went Wrong"
       redirect_to new_bill_path
     end
   end

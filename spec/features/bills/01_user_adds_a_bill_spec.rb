@@ -19,7 +19,7 @@ feature 'user adds a bill', %(
       expect(page).to have_css("form#new_bill")
     end
 
-    scenario "sepcifying valid information should create a new bill" do
+    scenario "specifying valid information should create a new bill" do
       visit root_path
       fill_in 'Title', with: 'Dinner'
       fill_in 'Description', with: 'Beehive Saturday Night'
@@ -43,7 +43,7 @@ feature 'user adds a bill', %(
       click_button 'Create Bill'
 
       expect(page).to have_css("form#new_bill")
-      expect(page).to have_content("Something went wrong")
+      expect(page).to have_content("Something Went Wrong")
       expect(page).to_not have_content("Everybody Owes:")
     end
   end
