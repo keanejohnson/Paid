@@ -1,11 +1,30 @@
-<h1> <%= "#{@bill.title}" %> </h1>
-<%= @bill.description %>
-<%= "Total: $#{@bill.amount}" %>
-<%= "Splits: #{@bill.party_size}" %>
-<%= "Everybody Owes: $#{@per_person}" %> </br>
+<h1> PAID </h1>
 
-<% if user_signed_in? %>
-  <%= link_to "Bill History", user_path(@bill.owner)  %>
-<% end %>
+<div class="split-bill">
+  <%= link_to "Split A New Bill", new_bill_path %>
+</div>
+<div class="split-bill">
+  <% if user_signed_in? %>
+    <%= link_to "Bill History", user_path(@bill.owner)  %>
+  <% end %>
+</div>
 
-<%= link_to "Split A New Bill", new_bill_path %>
+
+<div class="bill-show-table">
+  <table class="bill-show-data">
+    <tr>
+      <th><%= "Title" %></th>
+      <th><%=  "Description" %></th>
+      <th><%= "Total" %></th>
+      <th><%= "Splits" %></th>
+      <th><%= "Everybody Owes" %></th>
+    </tr>
+    <tr>
+      <td><%= "#{@bill.title}" %></td>
+      <td><%="#{@bill.description}" %></td>
+      <td><%= "$#{@bill.amount}" %></td>
+      <td><%= "#{@bill.party_size}" %></td>
+      <td> <%= "$#{@per_person}" %></td>
+    </tr>
+  </table>
+</div>

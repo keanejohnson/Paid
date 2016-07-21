@@ -1,7 +1,8 @@
 class BillsController < ApplicationController
   def show
     @bill = Bill.find(params[:id])
-    @per_person = (@bill.amount / @bill.party_size).round(2)
+    @per_person = (@bill.amount. / @bill.party_size)
+    @per_person = @per_person.round(2)
   end
 
   def new

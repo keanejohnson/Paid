@@ -12,7 +12,7 @@ feature "user updates a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
@@ -25,7 +25,7 @@ feature "user updates a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
@@ -39,7 +39,7 @@ feature "user updates a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
@@ -58,7 +58,7 @@ feature "user updates a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")

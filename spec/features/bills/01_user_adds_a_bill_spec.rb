@@ -29,9 +29,9 @@ feature 'user adds a bill', %(
 
       expect(page).to have_content('Dinner')
       expect(page).to have_content('Beehive Saturday Night')
-      expect(page).to have_content('Total: $84.38')
-      expect(page).to have_content('Splits: 2')
-      expect(page).to have_content('Everybody Owes: $42.19')
+      expect(page).to have_content('$84.38')
+      expect(page).to have_content('2')
+      expect(page).to have_content('$42.19')
     end
 
     scenario "specifying invalid information should not create a new bill" do
