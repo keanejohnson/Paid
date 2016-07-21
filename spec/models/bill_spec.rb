@@ -12,4 +12,8 @@ RSpec.describe Bill, type: :model do
 
   it { should have_valid(:party_size).when(2, 1, 10, 100) }
   it { should_not have_valid(:party_size).when(nil, '', -1, 2.2) }
+
+  it { should belong_to(:owner) }
+
+  it { should belong_to(:group) }
 end
