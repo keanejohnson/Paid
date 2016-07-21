@@ -21,14 +21,14 @@ feature 'user adds a group', %(
       visit root_path
       click_link("Manage Groups")
 
-      expect(page).to have_button("Add New Group")
+      expect(page).to have_link("Add New Group")
     end
 
     scenario "I should be taken to a new group form to add a new group" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
 
       expect(page).to have_content("New Group Form")
       expect(page).to have_css("form#new_group")
@@ -39,13 +39,13 @@ feature 'user adds a group', %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
 
       expect(page).to have_button("Revolutionary War Expenses")
-      expect(page).to have_button("Add New Group")
+      expect(page).to have_link("Add New Group")
     end
 
     scenario "I should not be able to create a new group if I enter invalid
@@ -53,11 +53,11 @@ feature 'user adds a group', %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       click_button("Create Group")
 
       expect(page).to have_content("New Group Form")
-      expect(page).to_not have_button("Add New Group")
+      expect(page).to_not have_link("Add New Group")
     end
   end
 

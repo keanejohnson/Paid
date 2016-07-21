@@ -12,7 +12,7 @@ feature "user deletes a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
@@ -25,14 +25,14 @@ feature "user deletes a group", %(
       login_as(user)
       visit root_path
       click_link("Manage Groups")
-      click_button("Add New Group")
+      click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
       click_button("Delete")
 
-      expect(page).to have_button("Add New Group")
+      expect(page).to have_link("Add New Group")
       expect(page).to_not have_button("Revolutionary War Expenses")
     end
   end

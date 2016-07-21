@@ -1,5 +1,12 @@
 <h1> PAID </h1>
-<h2><%= "#{@group.name}" %> </h2>
-<%= "#{@group.description}" %>
-<%= button_to "Update", edit_group_path(@group), method: :get, class: "button secondary" %>
-<%= button_to "Delete", group_path(@group), method: :delete, class:"button alert" %>
+<div class="groups-container">
+  <div class="group_name">
+    <h2><%= "#{@group.name}" %> </h2>
+    <%= "#{@group.description}" %>
+  </div>
+</div>
+
+<div class="buttons-group-show">
+  <%= button_to("Update", edit_group_path(@group), method: :get, class: "button secondary button-group-show") %>
+  <%= button_to("Delete", group_path(@group), method: :delete, class: "button alert button-group-show") %>
+</div>

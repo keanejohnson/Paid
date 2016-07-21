@@ -1,0 +1,45 @@
+$powder: #bfd8d2;
+$warm: #de744c;
+$black: #000000;
+$peach: #fedcd2;
+$dark-green: #609e90;
+
+@import 'https://fonts.googleapis.com/css?family=Space+Mono|Roboto+Slab';
+
+.bill-show-table {
+  font-family: 'Roboto Slab', serif;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: block;
+  text-align: left;
+}
+
+.bill-show-titles {
+  margin-left: 5%;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.split-bill {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-right: 30px;
+}
+
+
+
+th {
+  background-color: $peach;
+  text-align: left;
+}
+
+table {
+  border: 3px solid $dark-green;
+  text-align: center;
+}
+
+td {
+  background-color: #fdbeac;
+  border-top: 2px solid $dark-green;
+  text-align: left;
+}
