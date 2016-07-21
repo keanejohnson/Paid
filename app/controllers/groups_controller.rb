@@ -23,6 +23,26 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      flash[:success] = "Group Successfully Updated"
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
+  end
+
   protected
 
   def group_params
