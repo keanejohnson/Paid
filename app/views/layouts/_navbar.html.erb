@@ -3,6 +3,7 @@
     <% if user_signed_in? %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "sign-links-2" %>
       <%= link_to "Bill History", user_path(current_user), method: :get, class: "sign-links-2" %>
+      <%= link_to "Manage Groups", groups_path, method: :get, class: "sign-links-2" %>
     <% else %>
       <%= link_to 'Sign Up', new_user_registration_path, method: :get, class: "sign-links-2" %>
       <%= link_to 'Sign In', new_user_session_path, method: :get, class: "sign-links-2" %>
