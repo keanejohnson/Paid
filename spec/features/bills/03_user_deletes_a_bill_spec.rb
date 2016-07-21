@@ -5,7 +5,6 @@ feature "user deletes a bill", %(
   I want to be able to delete a bill
   So I can remove it from my Bill History
 ) do
-
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -36,7 +35,6 @@ feature "user deletes a bill", %(
       expect(page).to have_content("Bill History")
       expect(page).to_not have_content("Dinner")
     end
-
   end
 
   context "as an unauthenticated user" do
@@ -51,5 +49,4 @@ feature "user deletes a bill", %(
       expect(page).to_not have_link("Bill History")
     end
   end
-
 end

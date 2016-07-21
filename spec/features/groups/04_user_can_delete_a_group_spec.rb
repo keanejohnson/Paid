@@ -5,7 +5,6 @@ feature "user deletes a group", %(
   I want to be able to delete a group
   So I no longer have it in my group index
 ) do
-
   context "As an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -45,5 +44,4 @@ feature "user deletes a group", %(
       expect(page).to_not have_link("Manage Groups")
     end
   end
-
 end
