@@ -1,19 +1,12 @@
 class BillsController < ApplicationController
   def show
     @bill = Bill.find(params[:id])
-    @per_person = (@bill.amount / @bill.party_size)
-    @per_person = @per_person.round(2)
   end
 
   def new
-    if user_signed_in?
-      @user = current_user
-      @bill = Bill.new
-      @group = Group.find_by(id: params[:group_id])
-    else
-      @user = current_user
-      @bill = Bill.new
-    end
+    @user = current_user
+    @bill = Bill.new
+    @group = Group.find_by(id: params[:group_id])
   end
 
   def create
@@ -21,32 +14,10 @@ class BillsController < ApplicationController
       @bill = Bill.new(bill_params)
       @group = Group.find(params[:group_id])
       @bill.owner = current_user
-      if @group.nil?
-        @bill = Bill.new(bill_params)
-        @bill.owner = current_user
-        if @bill.save
-          flash[:success] = "Bill successfully split!"
-          redirect_to bill_path(@bill)
-        else
-          flash[:notice] = "Something Went Wrong"
-          redirect_to new_bill_path
-        end
-      else
-        @bill.group = @group
-        if @bill.save
-          flash[:success] = "Bill successfully split!"
-          redirect_to group_path(@bill.group_id)
-        else
-          flash[:notice] = "Something Went Wrong"
-          redirect_to new_bill_path
-        end
-      end
-    else
-      @bill = Bill.new(bill_params)
-      @bill.owner = current_user
+      @bill.group = @group
       if @bill.save
         flash[:success] = "Bill successfully split!"
-        redirect_to bill_path(@bill)
+        redirect_to group_path(@bill.group_id)
       else
         flash[:notice] = "Something Went Wrong"
         redirect_to new_bill_path
