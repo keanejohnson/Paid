@@ -42,6 +42,7 @@ feature 'user adds a group', %(
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
+      fill_in 'Size', with: 2
       click_button("Create Group")
 
       expect(page).to have_button("Revolutionary War Expenses")

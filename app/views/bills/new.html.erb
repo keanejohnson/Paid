@@ -7,7 +7,7 @@
     <%= "Share Calculator" %>
   </div>
 
-  <%= form_for @bill do |f| %>
+  <%= simple_form_for [@group, @bill]  do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 

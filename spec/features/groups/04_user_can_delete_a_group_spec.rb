@@ -15,6 +15,7 @@ feature "user deletes a group", %(
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
+      fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
 
@@ -28,6 +29,7 @@ feature "user deletes a group", %(
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
+      fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
       click_button("Delete")
