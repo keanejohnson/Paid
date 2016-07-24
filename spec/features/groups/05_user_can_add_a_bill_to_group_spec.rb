@@ -1,11 +1,11 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "user updates a group", %(
-  As an authenticated user
-  I want to be able to update a group
-  So it can better suit my needs
+feature "user adds a bill to a group", %(
+  As an authenticated user,
+  I want to be able to add a bill to a group
+  So that I can split bills with friends
 ) do
-  context "As an authenticated user" do
+  context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 
     scenario "I want to be able to navigate to a group" do
@@ -15,69 +15,71 @@ feature "user updates a group", %(
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
-      fill_in 'Size', with: 2
+      fill_in 'Size', with: '4'
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
 
-      expect(page).to have_button("Update")
+      expect(page).to have_button("Add Bill")
     end
 
-    scenario "clicking update on a group should render an update form" do
+    scenario "I want to be able to add a bill to a group" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
-      fill_in 'Size', with: 2
+      fill_in 'Size', with: '4'
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
+      click_button("Add Bill")
 
-      expect(page).to have_content("Update Group Form")
+      expect(page).to have_css("form#new_bill")
     end
 
-    scenario "submitting update form renders updates to group" do
+    scenario "I should be able to add a bill with valid information" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
-      fill_in 'Size', with: 2
+      fill_in 'Size', with: '4'
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
-      fill_in 'Name', with: 'Weekend at Mt. Vernon with the Fellas'
-      fill_in 'Description', with: 'Split bills with Thomas and Ben'
-      fill_in 'Size', with: 3
-      click_button("Update Group")
+      click_button("Add Bill")
+      fill_in 'Title', with: 'Dinner'
+      fill_in 'Description', with: 'Beehive Saturday Night'
+      fill_in 'Amount', with: '100.04'
+      fill_in 'Party Size', with: 4
+      click_button 'Create Bill'
 
-      expect(page).to have_content("Weekend at Mt. Vernon")
-      expect(page).to have_content("Split bills with Thomas and Ben")
+      expect(page).to have_content("Revolutionary War Expenses")
+      expect(page).to have_content("Everybody Owes: $25.01")
     end
 
-    scenario "submitting update form with invalid information will not update
-      group" do
+    scenario "I should not be able to add a bill with invalid information" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
       click_link("Add New Group")
       fill_in 'Name', with: 'Revolutionary War Expenses'
       fill_in 'Description', with: 'Splitting bills with France'
-      fill_in 'Size', with: 2
+      fill_in 'Size', with: '4'
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
-      fill_in 'Name', with: ''
+      click_button("Add Bill")
+      click_button("Create Bill")
 
-      click_button("Update Group")
-      expect(page).to have_content("Update Group Form")
+      expect(page).to have_css("form#new_bill")
+      expect(page).to have_content("Something Went Wrong")
+      expect(page).to_not have_content("Total Owed Per Person: ")
     end
   end
 
-  context "As an unauthenticated user" do
-    scenario "I should not be able to update a group" do
+  context "as an unauthenticated user" do
+    scenario "I should not be able to add a bill to a group because I cannot
+      create a group" do
       visit root_path
 
       expect(page).to_not have_link("Manage Groups")

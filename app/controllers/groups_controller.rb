@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @bills = @group.bills
   end
 
   def edit
@@ -46,6 +47,6 @@ class GroupsController < ApplicationController
   protected
 
   def group_params
-    params.require(:group).permit(:name, :description)
+    params.require(:group).permit(:name, :description, :size)
   end
 end
