@@ -34,6 +34,7 @@ feature 'user navigates to a group', %(
       click_button("Revolutionary War Expenses")
 
       expect(page).to have_content("Splitting bills with France")
+      expect(page).to have_content("Total Owed Per Person:")
     end
   end
 
