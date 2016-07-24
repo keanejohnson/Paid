@@ -3,24 +3,24 @@
   <div class="group-name">
     <h2><%= "#{@group.name}" %> </h2>
     <div class="group-info">
+      <%= "Total Owed Per Person: $#{@per_person}" %></br>
       <%= "Size: #{@group.size}" %></br>
       <%= "Description: #{@group.description}" %>
     </div>
   </div>
   <div class="button-group">
       <%= button_to("Add Bill", new_group_bill_path(@group), method: :get, class: "button success button-group-show") %>
-      <%= button_to("Update", edit_group_path(@group), method: :get, class: "button secondary button-group-show") %>
-      <%= button_to("Delete", group_path(@group), method: :delete, class: "button alert button-group-show") %>
+      <%= button_to("Update Group", edit_group_path(@group), method: :get, class: "button secondary button-group-show") %>
+      <%= button_to("Delete Group", group_path(@group), method: :delete, class: "button alert button-group-show") %>
   </div>
   <div class="bill-show-table">
-    <table class="bill-show-data">
+    <table>
       <tr>
         <th><%= "Title" %></th>
         <th><%=  "Description" %></th>
         <th><%= "Created At" %></th>
         <th><%= "Total" %></th>
-        <th><%= "Splits" %></th>
-        <th><%= "Everybody Owes" %></th>
+        <th><%= "Owed Per Person" %></th>
       </tr>
       <% @bills.each do |bill| %>
         <tr>
@@ -28,8 +28,7 @@
           <td><%= bill.description %></td>
           <td><%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
           <td><%= "$#{bill.amount}" %></td>
-          <td><%= bill.party_size %></td>
-          <td><%= "$#{(bill.amount / bill.party_size).round(2)}" %></td> </br>
+          <td><%= "$#{(bill.amount / bill.party_size).round(2)}" %></td>
         <% end %>
       </tr>
     </table>

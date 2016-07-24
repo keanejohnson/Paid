@@ -10,7 +10,7 @@
       <%= bill.description %>
       <%= "Total: $#{bill.amount}" %>
       <%= "Splits: #{bill.party_size}" %>
-      <%= "Everybody Owes: $#{(bill.amount / bill.party_size).round(2)}" %>
+      <%= "Owed Per Person: $#{(bill.amount / bill.party_size).round(2)}" %>
       <%= button_to "Delete", bill_path(bill), method: :delete, class: "button alert"%>
     <% end %>
   </div>

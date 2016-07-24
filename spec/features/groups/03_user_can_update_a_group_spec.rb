@@ -19,7 +19,7 @@ feature "user updates a group", %(
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
 
-      expect(page).to have_button("Update")
+      expect(page).to have_button("Update Group")
     end
 
     scenario "clicking update on a group should render an update form" do
@@ -32,7 +32,7 @@ feature "user updates a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
+      click_button("Update Group")
 
       expect(page).to have_content("Update Group Form")
     end
@@ -68,7 +68,7 @@ feature "user updates a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
+      click_button("Update Group")
       fill_in 'Name', with: ''
 
       click_button("Update Group")

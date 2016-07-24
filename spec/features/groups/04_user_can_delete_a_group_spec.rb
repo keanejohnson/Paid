@@ -19,7 +19,7 @@ feature "user deletes a group", %(
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
 
-      expect(page).to have_button("Delete")
+      expect(page).to have_button("Delete Group")
     end
 
     scenario "I want to be able to delete a group" do
@@ -32,7 +32,7 @@ feature "user deletes a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Delete")
+      click_button("Delete Group")
 
       expect(page).to have_link("Add New Group")
       expect(page).to_not have_button("Revolutionary War Expenses")
