@@ -22,6 +22,11 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @bills = @group.bills
+    @total = 0
+    @bills.each do |bill|
+      @total += bill.amount
+    end
+    @per_person = (@total / @group.size).round(2)
   end
 
   def edit

@@ -55,7 +55,7 @@ feature "user adds a bill to a group", %(
       click_button 'Create Bill'
 
       expect(page).to have_content("Revolutionary War Expenses")
-      expect(page).to have_content("$25.01")
+      expect(page).to have_content("Total Owed Per Person: $25.01")
     end
 
     scenario "I should not be able to add a bill with invalid information" do
