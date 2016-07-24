@@ -1,15 +1,14 @@
 .group-name {
-  text-align: center;
+  text-align: left;
 }
 
 .button-group-show {
   float: left;
-  margin: 10px;
   text-align: center;
 }
 
-.buttons-group-show {
-  text-align: center;
+.button-group {
+  margin: 10px;
 }
 
 .groups-container {
@@ -20,4 +19,8 @@
   margin-left: 15%;
   margin-right: 15%;
   padding: 10px 20px;
+}
+
+.group-info {
+  margin-left: 10px;
 }
