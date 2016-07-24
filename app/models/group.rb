@@ -5,6 +5,6 @@ class Group < ActiveRecord::Base
 
   validates :name, presence: true
   validates :size,
-    presence: true,
-    numericality: { only_integer: true, greater_than: 0 }
+              presence: true,
+              numericality: { only_integer: true, greater_than: 0 }
 end
