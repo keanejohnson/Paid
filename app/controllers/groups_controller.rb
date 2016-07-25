@@ -1,11 +1,13 @@
 class GroupsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @groups = Group.all
   end
 
   def new
-    @user = current_user
     @group = Group.new
+
   end
 
   def create
