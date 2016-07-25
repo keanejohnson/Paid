@@ -30,11 +30,7 @@ class BillsController < ApplicationController
       @bill = Bill.find(params[:id])
       @bill.destroy
       @user = current_user
-      redirect_to user_path(@user)
-    else
-      @bill = Bill.find(params[:id])
-      @bill.destroy
-      redirect_to root_path
+      redirect_to group_path(@bill.group_id)
     end
   end
 

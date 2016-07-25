@@ -1,9 +1,11 @@
 <h1> PAID </h1>
 <div class="groups-container">
   <div class="group-name">
-    <h2><%= "#{@group.name}" %> </h2>
+    <h2><%= "#{@group.name}" %></h2>
+    <div class="owed-per-person">
+      <%= "Total Owed Per Person: $#{@per_person}" %>
+    </div>
     <div class="group-info">
-      <div class="owed-per-person"><%= "Total Owed Per Person: $#{@per_person}" %></div>
       <%= "Size: #{@group.size}" %></br>
       <%= "Description: #{@group.description}" %>
     </div>
@@ -20,7 +22,8 @@
         <th><%=  "Description" %></th>
         <th><%= "Created At" %></th>
         <th><%= "Total" %></th>
-        <th><%= "Owed Per Person" %></th>
+        <th><%= "OPP*" %></th>
+        <th><%=  %></th>
       </tr>
       <% @bills.each do |bill| %>
         <tr>
@@ -29,8 +32,10 @@
           <td><%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
           <td><%= "$#{bill.amount}" %></td>
           <td><%= "$#{(bill.amount / bill.party_size).round(2)}" %></td>
+          <td><%= button_to("Delete", bill_path(bill), method: :delete) %>
         <% end %>
       </tr>
     </table>
+    <%= "*OPP = Owed Per Person" %>
   </div>
 </div>
