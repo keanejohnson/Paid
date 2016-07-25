@@ -5,7 +5,7 @@
     <%= "New Group Form" %>
   </div>
 
-  <%= form_for @group do |f| %>
+  <%= form_for [@user, @group] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
