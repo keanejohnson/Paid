@@ -2,15 +2,19 @@ class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @groups = Group.all
+    @user = current_user
+    @groups = @user.groups
   end
 
   def new
+    @user = current_user
     @group = Group.new
   end
 
   def create
+    @user = current_user
     @group = Group.new(group_params)
+    @group.users << @user
     if @group.save
       flash[:success] = "New Group Created"
       redirect_to groups_path

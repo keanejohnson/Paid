@@ -14,12 +14,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:destroy, :index]
-  resources :bills
+  resources :users
   resources :groups
+  resources :users do
+    resources :groups
+  end
+  resources :bills
   resources :groups do
     resources :bills
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
