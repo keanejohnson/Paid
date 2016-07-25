@@ -5,7 +5,6 @@ feature 'user deletes a bill from a group', %(
   I want to be able to delete a bill from a group
   So that I can remove it if I added it in error
 ) do
-
   context "As an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
     scenario "I should see a delete button next to a given bill I add" do
