@@ -21,7 +21,6 @@ feature 'user deletes a bill from a group', %(
       fill_in 'Title', with: 'Dinner'
       fill_in 'Description', with: 'Beehive Saturday Night'
       fill_in 'Amount', with: '100.04'
-      fill_in 'Party Size', with: 4
       click_button 'Create Bill'
 
       expect(page).to have_button("Delete")
@@ -41,7 +40,6 @@ feature 'user deletes a bill from a group', %(
       fill_in 'Title', with: 'Dinner'
       fill_in 'Description', with: 'Beehive Saturday Night'
       fill_in 'Amount', with: '100.04'
-      fill_in 'Party Size', with: 4
       click_button 'Create Bill'
       click_button 'Delete'
 

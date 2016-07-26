@@ -51,7 +51,6 @@ feature "user adds a bill to a group", %(
       fill_in 'Title', with: 'Dinner'
       fill_in 'Description', with: 'Beehive Saturday Night'
       fill_in 'Amount', with: '100.04'
-      fill_in 'Party Size', with: 4
       click_button 'Create Bill'
 
       expect(page).to have_content("Revolutionary War Expenses")
