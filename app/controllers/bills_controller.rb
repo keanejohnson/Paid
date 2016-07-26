@@ -15,6 +15,7 @@ class BillsController < ApplicationController
       @group = Group.find(params[:group_id])
       @bill.owner = current_user
       @bill.group = @group
+      @bill.party_size = @group.size
       if @bill.save
         flash[:success] = "Bill successfully split!"
         redirect_to group_path(@bill.group_id)
@@ -37,6 +38,6 @@ class BillsController < ApplicationController
   protected
 
   def bill_params
-    params.require(:bill).permit(:title, :description, :amount, :party_size)
+    params.require(:bill).permit(:title, :description, :amount)
   end
 end
