@@ -34,7 +34,7 @@ class SettlementsController < ApplicationController
   end
 
   def index
-    @group = Group.find_by(params[:id])
+    @group = Group.find_by(id: params[:group_id])
     @settlements = @group.settlements
   end
 end
