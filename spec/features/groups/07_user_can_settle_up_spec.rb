@@ -94,5 +94,4 @@ feature 'user settles up', %(
       expect(page).to_not have_link("Manage Groups")
     end
   end
-
 end
