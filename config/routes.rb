@@ -15,13 +15,33 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
   resources :groups
+
   resources :users do
     resources :groups
   end
+
   resources :bills
+
   resources :groups do
     resources :bills
+  end
+
+  resources :settlements
+
+  resources :groups do
+    resources :settlements
+  end
+
+  resources :bills do
+    resources :settlements
+  end
+
+  resources :settlement_payments
+
+  resources :settlements do
+    resources :settlement_payments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
