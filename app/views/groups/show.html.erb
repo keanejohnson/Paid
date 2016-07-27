@@ -14,9 +14,6 @@
     <%= button_to("Add Bill", new_group_bill_path(@group), method: :get, class: "button success button-group-show") %>
     <%= button_to("Settle Up", group_settlements_path(@group), method: :post, class: "button") %>
   </div>
-    <div class="button-group">
-      <%= button_to("All Settlements", settlements_path, method: :get, class: "button") %>
-    </div>
   <div class="bill-show-table">
     <table>
       <tr>
