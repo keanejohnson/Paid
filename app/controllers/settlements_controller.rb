@@ -15,10 +15,7 @@ class SettlementsController < ApplicationController
 
     @users = @group.users
     @users.each do |user|
-      @settlement_payment = SettlementPayment.create(
-        user: user,
-        settlement: @settlement
-      )
+      @settlement_payment = SettlementPayment.create(user: user, settlement: @settlement)
       @settlement_payment.settlement_amount = (@settlement.bills.where(owner: user).sum(:amount) - @settlement.average_payment).round(2)
       if @settlement_payment.settlement_amount < 0
         @settlement_payment.debit = true

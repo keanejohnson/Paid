@@ -1,5 +1,8 @@
 <h1>PAID</h1>
 <h2> Bills In This Settlement </h2>
+<div class="owed-per-person">
+  <%= "Total Owed Per Person: $#{(@settlement.average_payment).round(2)}" %>
+</div>
 <div class="bill-show-table">
   <table>
     <tr>
@@ -25,12 +28,15 @@
 </div>
 
 <h2>User Is Owed</h2>
+<div class="owed-per-person">
+  <%= "Total Owed Per Person: $#{(@settlement.average_payment).round(2)}" %>
+</div>
 <div class="bill-show-table">
   <table>
     <tr>
       <th><%= "User" %></th>
-      <th><%= "Amount" %></th>
-      <th><%= "Each Other Group Member Owes This Amount To User**" %>
+      <th><%= "Amount**" %></th>
+      <th><%= "Other Members Owe***" %>
     </tr>
     <% @settlement_payments.each do |s| %>
       <tr>
@@ -44,4 +50,8 @@
       <% end %>
     </tr>
   </table>
+  <%= "**Amount = difference between what this user has paid and what the
+    user should have paid (Total Owed Per Person)" %></br>
+  <%= "***Other Members Owe = what each other user in group needs to pay this
+  user so the settlement is settled" %>
 </div>
