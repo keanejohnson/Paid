@@ -2,6 +2,7 @@ class Group < ActiveRecord::Base
   has_many :user_groups
   has_many :users, through: :user_groups
   has_many :bills
+  has_many :settlements
 
   validates :name, presence: true
   validates :size,

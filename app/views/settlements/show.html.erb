@@ -1,0 +1,57 @@
+<h1>PAID</h1>
+<h2> Bills In This Settlement </h2>
+<div class="owed-per-person">
+  <%= "Total Owed Per Person: $#{(@settlement.average_payment).round(2)}" %>
+</div>
+<div class="bill-show-table">
+  <table>
+    <tr>
+      <th><%= "Title" %></th>
+      <th><%= "Payer" %></th>
+      <th><%=  "Description" %></th>
+      <th><%= "Created At" %></th>
+      <th><%= "Total" %></th>
+      <th><%= "OPP*" %></th>
+    </tr>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.title %></td>
+        <td><%= bill.owner.first_name %>
+        <td><%= bill.description %></td>
+        <td><%= bill.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
+        <td><%= "$#{bill.amount}" %></td>
+        <td><%= "$#{(bill.amount / bill.party_size).round(2)}" %></td>
+      <% end %>
+    </tr>
+  </table>
+  <%= "*OPP = Owed Per Person" %>
+</div>
+
+<h2>User Is Owed</h2>
+<div class="owed-per-person">
+  <%= "Total Owed Per Person: $#{(@settlement.average_payment).round(2)}" %>
+</div>
+<div class="bill-show-table">
+  <table>
+    <tr>
+      <th><%= "User" %></th>
+      <th><%= "Amount**" %></th>
+      <th><%= "Other Members Owe***" %>
+    </tr>
+    <% @settlement_payments.each do |s| %>
+      <tr>
+        <td><%= s.user.first_name %></td>
+        <td><%= "$#{s.settlement_amount}"%></td>
+        <% if s.settlement_amount > 0 %>
+          <td><%=  "$#{(s.settlement_amount/(s.settlement.group.size - 1)).round(2)}"%>
+        <% else %>
+          <td><%=  "User is not owed money"%></td>
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+  <%= "**Amount = difference between what this user has paid and what the
+    user should have paid (Total Owed Per Person)" %></br>
+  <%= "***Other Members Owe = what each other user in group needs to pay this
+  user so the settlement is settled" %>
+</div>

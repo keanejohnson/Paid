@@ -11,26 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722144438) do
+ActiveRecord::Schema.define(version: 20160726183445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "title",         null: false
     t.text     "description"
-    t.float    "amount",      null: false
-    t.integer  "party_size",  null: false
+    t.float    "amount",        null: false
+    t.integer  "party_size",    null: false
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.integer  "settlement_id"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string  "name",        null: false
     t.text    "description"
     t.integer "size",        null: false
+  end
+
+  create_table "settlement_payments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "settlement_id"
+    t.float   "settlement_amount"
+    t.boolean "user_paid"
+    t.boolean "debit"
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.integer  "group_id"
+    t.boolean  "complete"
+    t.float    "average_payment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_groups", force: :cascade do |t|
