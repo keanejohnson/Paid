@@ -1,17 +1,10 @@
 <h1>PAID</h1>
-<h2><%= link_to("Back To #{@group.name}", group_path(@group)) %></h2>
+<h6><%= link_to("Back To #{@group.name}", group_path(@group)) %></h6>
 <h2><%= " Settlement History"%></h2>
 
 <h3> Open Settlements</h3>
 <% @settlements.each do |s| %>
   <% if s.complete.nil? %>
     <%= link_to("Settled On #{s.created_at.to_time.strftime('%B %e at %l:%M %p')}", settlement_path(s)) %></br>
-  <% end %>
-<% end %>
-
-<h3> Closed Settlements</h3>
-<% @settlements.each do |s| %>
-  <% if s.complete.nil? == false %>
-    <%= "Settlement on #{s.created_at.to_time.strftime('%B %e at %l:%M %p')} is closed" %></br>
   <% end %>
 <% end %>

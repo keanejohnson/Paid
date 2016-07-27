@@ -32,4 +32,9 @@ class SettlementsController < ApplicationController
     @bills = @settlement.bills
     @settlement_payments = @settlement.settlement_payments
   end
+
+  def index
+    @group = Group.find_by(params[:id])
+    @settlements = @group.settlements
+  end
 end
