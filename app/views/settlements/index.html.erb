@@ -1,10 +1,14 @@
 <h1>PAID</h1>
-<h6><%= link_to("Back To #{@group.name}", group_path(@group)) %></h6>
-<h2><%= " Settlement History"%></h2>
+<div class="groups-container">
+  <div class="back-to-group"><%= link_to("<  Back To #{@group.name}", group_path(@group)) %></div>
+  <h2><%= "Settlement History"%></h2>
 
-<h3> Open Settlements</h3>
-<% @settlements.each do |s| %>
-  <% if s.complete.nil? %>
-    <%= link_to("Settled On #{s.created_at.to_time.strftime('%B %e at %l:%M %p')}", settlement_path(s)) %></br>
-  <% end %>
-<% end %>
+  <h3> Open Settlements:</h3>
+  <div class="group-info">
+    <% @settlements.each do |s| %>
+      <% if s.complete.nil? %>
+        <%= link_to("Settled On #{s.created_at.to_time.strftime('%B %e at %l:%M %p')}", settlement_path(s)) %></br>
+      <% end %>
+    <% end %>
+  </div>
+</div>
