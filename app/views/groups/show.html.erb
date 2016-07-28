@@ -6,6 +6,11 @@
       <%= "Total Owed Per Person: $#{@per_person}" %>
     </div>
     <div class="group-info">
+      <%= "Members: " %>
+      <%= @members.join(", ") %></br>
+      <% if @members.length < @group.size %>
+        <%= link_to("Add Members", new_group_user_group_path(@group)) %> </br>
+      <% end %>
       <%= "Size: #{@group.size}" %></br>
       <%= "Description: #{@group.description}" %>
     </div>
@@ -15,7 +20,7 @@
     <%= button_to("Settle Up", group_settlements_path(@group), method: :post, class: "button") %>
   </div>
   <div class="button-group">
-    <%= button_to("Settlement History", group_settlements_path(@group), method: :get, class: "button") %>
+    <%= button_to("Settlement History", group_settlements_path(@group), method: :get, class: "secondary button") %>
   </div>
   <div class="bill-show-table">
     <table>
@@ -43,7 +48,6 @@
     <%= "***OPP = Owed Per Person" %>
   </div>
   <div class="button-group">
-      <%= button_to("Update Group", edit_group_path(@group), method: :get, class: "button secondary button-group-show") %>
       <%= button_to("Delete Group", group_path(@group), method: :delete, class: "button alert button-group-show") %>
   </div>
 </div>
