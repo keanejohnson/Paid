@@ -5,7 +5,6 @@ feature 'user can close a settlement', %(
   I want to be able to close a settlement
   So I can untrack settlements that have been paid
 ) do
-
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 

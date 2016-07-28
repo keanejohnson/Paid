@@ -43,7 +43,6 @@ feature 'user sees past settlements', %(
       click_button("Create Bill")
       click_button("Settlement History")
 
-  
       expect(page).to have_content("Open Settlements")
       expect(page).to have_link("Back To Revolutionary War Expenses")
     end
