@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   resources :groups
 
+  resources :groups do
+    resources :user_groups
+  end
+
   resources :users do
     resources :groups
   end

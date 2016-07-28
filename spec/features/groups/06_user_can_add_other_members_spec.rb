@@ -1,14 +1,15 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "user updates a group", %(
-  As an authenticated user
-  I want to be able to update a group
-  So it can better suit my needs
+feature 'user adds other member to group', %(
+  As an authenticated user,
+  I want to be able to add other members to my group
+  So that I can split bills with them
 ) do
-  context "As an authenticated user" do
+
+  context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 
-    scenario "I want to be able to navigate to a group" do
+    scenario "I should be able to see a button to add a user to a group" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
@@ -19,10 +20,11 @@ feature "user updates a group", %(
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
 
-      expect(page).to have_button("Update Group")
+      expect(page).to have_link("Add Members")
     end
 
-    scenario "clicking update on a group should render an update form" do
+    scenario "clicking on the Add Users button should take me to the Add Users
+      page" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
@@ -32,12 +34,12 @@ feature "user updates a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update Group")
+      click_link("Add Members")
 
-      expect(page).to have_content("Update Group Form")
+      expect(page).to have_content("Add User To Group")
     end
 
-    scenario "submitting update form renders updates to group" do
+    scenario "the Add Users To Group page should have a form to add users" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
@@ -47,18 +49,14 @@ feature "user updates a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update")
-      fill_in 'Name', with: 'Weekend at Mt. Vernon with the Fellas'
-      fill_in 'Description', with: 'Split bills with Thomas and Ben'
-      fill_in 'Size', with: 3
-      click_button("Update Group")
+      click_link("Add Members")
 
-      expect(page).to have_content("Weekend at Mt. Vernon")
-      expect(page).to have_content("Split bills with Thomas and Ben")
+      expect(page).to have_content("User")
+      expect(page).to have_button("Add User")
     end
 
-    scenario "submitting update form with invalid information will not update
-      group" do
+    scenario "selecting a user and clicking submit will redirect you back to
+      the group show page" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
@@ -68,16 +66,18 @@ feature "user updates a group", %(
       fill_in 'Size', with: 2
       click_button("Create Group")
       click_button("Revolutionary War Expenses")
-      click_button("Update Group")
-      fill_in 'Name', with: ''
+      click_link("Add Members")
+      select("George", from: "Users")
+      click_button("Add User")
 
-      click_button("Update Group")
-      expect(page).to have_content("Update Group Form")
+      expect(page).to have_content("Revolutionary War Expenses")
+      expect(page).to have_button("Add Bill")
     end
   end
 
-  context "As an unauthenticated user" do
-    scenario "I should not be able to update a group" do
+  context "as an unauthenticated user" do
+    scenario "I should not be able to add members to a group because I cannot
+      create a group" do
       visit root_path
 
       expect(page).to_not have_link("Manage Groups")

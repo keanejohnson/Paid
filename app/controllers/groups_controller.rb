@@ -27,6 +27,12 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @bills = @group.bills
+
+    @members = []
+    @group.users.each do |user|
+      @members << user.first_name
+    end
+
     @total = 0
     @bills.each do |bill|
       @total += bill.amount
@@ -36,16 +42,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-  end
-
-  def update
-    @group = Group.find(params[:id])
-    if @group.update(group_params)
-      flash[:success] = "Group Successfully Updated"
-      redirect_to group_path(@group)
-    else
-      render :edit
-    end
+    @users = User.all
   end
 
   def destroy

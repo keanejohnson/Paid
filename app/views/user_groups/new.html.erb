@@ -1,0 +1,14 @@
+<h1> PAID </h1>
+
+<div class="new-bill-form">
+  <div class="form-title">
+    <%= "Add User To Group" %>
+  </div>
+
+  <%= simple_form_for [@group, @user_group], url: group_user_groups_path(@group) do |f| %>
+    <%= f.label :user_id, "Users" %>
+    <%= f.collection_select(:user_id, @users, :id, :first_name) %>
+
+    <%= f.submit "Add User", class: "info button" %>
+  <% end %>
+</div>
