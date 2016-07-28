@@ -7,7 +7,7 @@ feature 'user sees past settlements', %(
 ) do
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
-    scenario "user can see a button to settlement history" do
+    scenario "I can see a button to settlement history" do
       login_as(user)
       visit root_path
       click_link("Manage Groups")
@@ -43,7 +43,6 @@ feature 'user sees past settlements', %(
       click_button("Create Bill")
       click_button("Settlement History")
 
-      expect(page).to have_content("Settlement History")
       expect(page).to have_content("Open Settlements")
       expect(page).to have_link("Back To Revolutionary War Expenses")
     end

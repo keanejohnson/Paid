@@ -32,7 +32,11 @@ Rails.application.routes.draw do
     resources :bills
   end
 
-  resources :settlements
+  resources :settlements do
+    member do
+      get :flop
+    end
+  end
 
   resources :groups do
     resources :settlements
