@@ -29,6 +29,7 @@ class SettlementsController < ApplicationController
 
   def show
     @settlement = Settlement.find(params[:id])
+    @group = @settlement.group
     @bills = @settlement.bills
     @settlement_payments = @settlement.settlement_payments
   end
@@ -36,5 +37,14 @@ class SettlementsController < ApplicationController
   def index
     @group = Group.find_by(id: params[:group_id])
     @settlements = @group.settlements
+  end
+
+  def flop
+    @settlement = Settlement.find(params[:id])
+    @group = @settlement.group
+    @settlement.complete = true
+    @settlement.save!
+
+    redirect_to group_settlements_path(@group)
   end
 end

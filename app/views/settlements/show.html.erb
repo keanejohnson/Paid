@@ -1,5 +1,9 @@
 <h1>PAID</h1>
 <div class="groups-container">
+  <div class="back-to-group">
+    <%= link_to("<  Back To Settlements Index", group_settlements_path(@group)) %> </br>
+    <%= link_to("<  Back To #{@group.name}", group_path(@group)) %>
+  </div>
   <h2>User Is Owed</h2>
   <div class="bill-show-table">
     <table>
@@ -15,7 +19,7 @@
           <% if s.settlement_amount > 0 %>
             <td><%=  "$#{(s.settlement_amount/(s.settlement.group.size - 1)).round(2)}"%>
           <% else %>
-            <td><%=  "User is not owed money"%></td>
+            <td><%= "User is not owed money"%></td>
           <% end %>
         <% end %>
       </tr>
@@ -24,6 +28,9 @@
       user should have paid (Total Owed Per Person)" %></br>
     <%= "**Other Members Owe = what each other user in group needs to pay this
     user so the settlement is settled" %>
+  </div>
+  <div class="close-settlement-button">
+    <%= button_to("Close Settlement", flop_settlement_path(@settlement), method: :get, class: "button alert") %>
   </div>
 </div>
 
