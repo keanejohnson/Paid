@@ -5,7 +5,6 @@ feature 'user adds other member to group', %(
   I want to be able to add other members to my group
   So that I can split bills with them
 ) do
-
   context "as an authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
 
